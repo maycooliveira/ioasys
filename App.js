@@ -31,7 +31,11 @@ const RootNavigation = () => {
             component={LoginScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="coreScreen" component={CoreScreen} options={appBarConfig('')} />
+          <Stack.Screen
+            name="coreScreen"
+            component={CoreScreen}
+            options={{ ...appBarConfig('Empresas') }}
+          />
         </Stack.Navigator>
       </BaseNavigationContainer>
     </Provider>

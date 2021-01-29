@@ -19,4 +19,16 @@ const Spacer = ({ value = 20 }) => {
   return <View style={{ width: value, height: value }} />;
 };
 
-export { showMessage, checkEmail, checkPasswordLength, Spacer };
+const getUnique = (dataTypes) => {
+  const arrayUnique = [];
+  dataTypes.map((itemType) => {
+    if (!arrayUnique.some((item) => item.id === itemType.id)) {
+      arrayUnique.push(itemType);
+    }
+  });
+  return arrayUnique.sort((a, b) => {
+    return a.enterprise_type_name.localeCompare(b.enterprise_type_name);
+  });
+};
+
+export { showMessage, checkEmail, checkPasswordLength, Spacer, getUnique };
