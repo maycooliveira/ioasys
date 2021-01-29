@@ -39,7 +39,7 @@ const RootNavigation = () => {
           <Stack.Screen
             name="coreScreen"
             component={CoreScreen}
-            options={{ ...appBarConfig('Enterprises') }}
+            options={{ ...appBarConfig('Enterprises'), headerBackImage: () => null }}
           />
           <Stack.Screen
             name="enterpriseDetail"

@@ -7,7 +7,7 @@ export const Container = styled.View`
 `;
 
 export const Loading = styled.ActivityIndicator`
-  margin-top: 10px;
+  margin-top: 40px;
   margin-bottom: 10px;
 `;
 
@@ -30,4 +30,8 @@ export const EmptyListLabel = styled.Text`
 
 export const ContainerIcons = styled.View`
   flex-direction: row;
+`;
+
+export const ContainerLeftIcon = styled.View`
+  padding-left: 12;
 `;

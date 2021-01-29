@@ -23,4 +23,11 @@ export function* getUser(value) {
   }
 }
 
-export default all([takeLatest(Types.USER_REQUEST, getUser)]);
+export function* doLogout() {
+  yield put(getUserSuccess(null));
+}
+
+export default all([
+  takeLatest(Types.USER_REQUEST, getUser),
+  takeLatest(Types.USER_LOGOUT, doLogout),
+]);

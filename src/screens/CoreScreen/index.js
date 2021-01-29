@@ -6,15 +6,18 @@ import {
   FilterButton,
   EmptyListLabel,
   ContainerIcons,
+  ContainerLeftIcon,
 } from './styles';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { enterpriseListRequest } from '../../store/modules/enterprise/actions';
 import RowEnterprise from '../../components/RowEnterprise';
 import { getUnique } from '../../utils';
 import colors from '../../styles/colors';
+import { userLogout } from '../../store/modules/user/actions';
 
 const CoreScreen = () => {
   const data = useSelector((state) => state.enterprises);
@@ -26,6 +29,7 @@ const CoreScreen = () => {
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
+      headerLeft: () => <ContainerLeftIcon>{getButton('exit', 'sign-out-alt')}</ContainerLeftIcon>,
       headerRight: () => (
         <ContainerIcons>
           {getButton('refresh', 'redo-alt')}
@@ -57,10 +61,6 @@ const CoreScreen = () => {
     <RowEnterprise item={item} onPress={() => callDetail(item.id)} />
   );
 
-  const renderFooter = () => {
-    return <Loading color={colors.base} />;
-  };
-
   const callDetail = (id) => {
     navigation.navigate('enterpriseDetail', { id: id });
   };
@@ -69,10 +69,15 @@ const CoreScreen = () => {
     (action, icon) => {
       return (
         <FilterButton
-          onPress={() => {
+          onPress={async () => {
             if (action === 'refresh') {
               dispatch(enterpriseListRequest());
               return;
+            }
+            if (action === 'exit') {
+              await dispatch(userLogout());
+              AsyncStorage.removeItem('token');
+              navigation.goBack();
             }
             navigation.navigate(action, { types: types });
           }}>
@@ -83,6 +88,10 @@ const CoreScreen = () => {
     [navigation, types, dispatch],
   );
 
+  if (loading) {
+    return <Loading color={colors.base} />;
+  }
+
   return (
     <Container>
       {enterprises.length === 0 && !loading && (
@@ -92,7 +101,6 @@ const CoreScreen = () => {
         keyExtractor={(item) => `enterprise${item.id}`}
         data={enterprises}
         renderItem={renderItem}
-        ListFooterComponent={loading ? renderFooter : null}
       />
     </Container>
   );
