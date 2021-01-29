@@ -9,11 +9,10 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   const { payload } = action;
-
   return produce(state, (draft) => {
     switch (action.type) {
       case Types.UPDATE_LIST:
-        draft.enterprises = payload;
+        draft.data = action.search;
         break;
       case Types.ENTERPRISE_LIST_REQUEST:
         draft.loading = true;

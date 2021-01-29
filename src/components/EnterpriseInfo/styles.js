@@ -14,7 +14,7 @@ export const ButtonTitle = styled.Text`
 `;
 
 export const Title = styled.Text`
-  font-size: 20;
+  font-size: 22;
   font-weight: 600;
   color: ${colors.slate};
 `;
@@ -24,13 +24,13 @@ export const ViewInfo = styled.View`
 `;
 
 export const Label = styled.Text`
-  font-size: 11;
+  font-size: 12;
   color: ${colors.base};
   font-weight: 300;
 `;
 
 export const Info = styled.Text`
-  font-size: 12;
+  font-size: 14;
   margin-top: 4px;
   color: ${colors.black_60};
   font-weight: 400;

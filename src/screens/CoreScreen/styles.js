@@ -19,3 +19,15 @@ export const FilterButton = styled.TouchableOpacity`
   margin-right: 10;
   padding: 6px;
 `;
+
+export const EmptyListLabel = styled.Text`
+  font-size: 20;
+  font-weight: 600;
+  color: ${colors.gray_30};
+  text-align: center;
+  margin-top: 40px;
+`;
+
+export const ContainerIcons = styled.View`
+  flex-direction: row;
+`;

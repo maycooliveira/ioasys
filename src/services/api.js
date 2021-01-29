@@ -27,7 +27,8 @@ function instance() {
       return response;
     },
     async (error) => {
-      return Promise.reject(error);
+      console.log('e1', JSON.stringify(error.response));
+      return Promise.reject(error.response.data);
     },
   );
 

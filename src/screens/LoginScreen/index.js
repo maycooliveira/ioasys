@@ -58,12 +58,7 @@ const LoginScreen = () => {
           onChangeText={(text) => handleChangeText('password', text)}
         />
         <Spacer value={50} />
-        <BaseButton
-          title="Entrar"
-          color={colors.base}
-          onPress={() => doLogin()}
-          loading={loading}
-        />
+        <BaseButton title="Enter" color={colors.base} onPress={() => doLogin()} loading={loading} />
         <Spacer value={50} />
       </ViewLogin>
     </Container>

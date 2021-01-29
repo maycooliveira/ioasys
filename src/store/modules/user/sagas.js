@@ -19,7 +19,7 @@ export function* getUser(value) {
     yield put(getUserSuccess({ ...response.data, ...response.headers }));
   } catch (error) {
     yield put(getUserFailure(error));
-    showMessage(error.message || 'Erro desconhecido');
+    showMessage(error.errors[0] || 'Erro desconhecido');
   }
 }
 

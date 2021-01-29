@@ -8,7 +8,7 @@ export function* getEnterprises() {
 }
 
 export function* updateEnterprises(data) {
-  yield doCall('enterprises?enterprise_types=3&name=F');
+  yield doCall('enterprises?enterprise_types=' + data.search.type + '&name=' + data.search.query);
 }
 
 function* doCall(url) {
@@ -17,7 +17,7 @@ function* doCall(url) {
     yield put(enterpriseListSuccess(response.data.enterprises));
   } catch (error) {
     yield put(enterpriseListFailure(error));
-    showMessage(error.message || 'Erro desconhecido');
+    showMessage(error.errors[0] || 'Erro desconhecido');
   }
 }
 
