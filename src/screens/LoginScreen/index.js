@@ -29,13 +29,13 @@ const LoginScreen = () => {
 
   function doLogin() {
     if (formValues.email?.trim() === '') {
-      showMessage('Informe o E-mail');
+      showMessage('E-mail is required');
     } else if (formValues.password?.trim() === '') {
-      showMessage('Informe a Senha');
+      showMessage('Password is required');
     } else if (!checkEmail(formValues.email)) {
-      showMessage('Email inválido');
+      showMessage('Invalid email');
     } else if (!checkPasswordLength(formValues.password)) {
-      showMessage('Senha deve conter no mínino 6 caracteres');
+      showMessage('Password must contain at least 6 characters');
     } else {
       dispatch(userRequest(formValues));
     }
@@ -53,7 +53,7 @@ const LoginScreen = () => {
           onChangeText={(text) => handleChangeText('email', text)}
         />
         <Input
-          placeholder="Senha"
+          placeholder="Password"
           secureTextEntry={true}
           name={formValues.password}
           onChangeText={(text) => handleChangeText('password', text)}
