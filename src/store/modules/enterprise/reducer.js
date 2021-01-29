@@ -12,6 +12,7 @@ export default function reducer(state = initialState, action) {
   return produce(state, (draft) => {
     switch (action.type) {
       case Types.UPDATE_LIST:
+        draft.loading = true;
         draft.data = action.search;
         break;
       case Types.ENTERPRISE_LIST_REQUEST:

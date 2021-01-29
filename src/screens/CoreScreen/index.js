@@ -13,7 +13,7 @@ import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { enterpriseListRequest } from '../../store/modules/enterprise/actions';
 import RowEnterprise from '../../components/RowEnterprise';
-import { getUnique, Spacer } from '../../utils';
+import { getUnique } from '../../utils';
 import colors from '../../styles/colors';
 
 const CoreScreen = () => {
@@ -37,12 +37,12 @@ const CoreScreen = () => {
 
   useEffect(() => {
     dispatch(enterpriseListRequest());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
+    setLoading(data.loading);
     setEnterprises(data.enterprises);
     if (types.length === 0) {
-      console.log('aqui');
       setTypes(
         getUnique(
           data.enterprises.map((item) => {
@@ -51,7 +51,6 @@ const CoreScreen = () => {
         ),
       );
     }
-    setLoading(data.loading);
   }, [data.enterprises, data.loading]);
 
   const renderItem = ({ item }) => (
@@ -86,17 +85,15 @@ const CoreScreen = () => {
 
   return (
     <Container>
-      {enterprises.length > 0 && !loading && (
-        <ListEnterprise
-          keyExtractor={(item) => `enterprise${item.id}`}
-          data={enterprises}
-          renderItem={renderItem}
-          ListFooterComponent={loading ? renderFooter : null}
-        />
-      )}
       {enterprises.length === 0 && !loading && (
         <EmptyListLabel>{'No enterprise\nfound'}</EmptyListLabel>
       )}
+      <ListEnterprise
+        keyExtractor={(item) => `enterprise${item.id}`}
+        data={enterprises}
+        renderItem={renderItem}
+        ListFooterComponent={loading ? renderFooter : null}
+      />
     </Container>
   );
 };

@@ -46,7 +46,6 @@ const FilterScreen = (props) => {
     } else if (query.trim() === '') {
       showMessage('Please inform the Enterprise name');
     } else {
-      console.log(typeSelected.id + ' ' + query);
       dispatch(updateList({ type: typeSelected.id, query }));
       navigation.goBack();
     }
