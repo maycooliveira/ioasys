@@ -16,6 +16,8 @@ import RowEnterprise from '../../components/RowEnterprise';
 import { getUnique } from '../../utils';
 import colors from '../../styles/colors';
 
+//
+
 const CoreScreen = () => {
   const data = useSelector((state) => state.enterprises);
   const dispatch = useDispatch();
