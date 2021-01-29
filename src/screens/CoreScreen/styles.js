@@ -14,3 +14,8 @@ export const Loading = styled.ActivityIndicator`
 export const ListEnterprise = styled.FlatList`
   padding-horizontal: 20px;
 `;
+
+export const FilterButton = styled.TouchableOpacity`
+  margin-right: 10;
+  padding: 6px;
+`;

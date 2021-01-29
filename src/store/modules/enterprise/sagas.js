@@ -4,18 +4,16 @@ import { Types, enterpriseListFailure, enterpriseListSuccess, updateList } from 
 import { showMessage } from '../../../utils';
 
 export function* getEnterprises() {
-  try {
-    const response = yield call(api.instance().get, 'enterprises');
-    yield put(enterpriseListSuccess(response.data.enterprises));
-  } catch (error) {
-    yield put(enterpriseListFailure(error));
-    showMessage(error.message || 'Erro desconhecido');
-  }
+  yield doCall('enterprises');
 }
 
 export function* updateEnterprises(data) {
+  yield doCall('enterprises?enterprise_types=3&name=F');
+}
+
+function* doCall(url) {
   try {
-    const response = yield call(api.instance().get, 'enterprises?enterprise_types=3&name=F');
+    const response = yield call(api.instance().get, url);
     yield put(enterpriseListSuccess(response.data.enterprises));
   } catch (error) {
     yield put(enterpriseListFailure(error));
