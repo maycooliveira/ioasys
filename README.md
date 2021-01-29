@@ -16,3 +16,13 @@
 * redux, react-redux e redux-saga - Usadas para Manter o states dos dados e controlar operações assincronas;
 * immer - Utilizada para ajudar no processo de spreads dentro do redux-saga;
 * reactotron-react-native - Usada para obteção de log da aplicação.
+
+### Execução da aplicação ###
+
+- Clone repo: git clone https://maycomegaleios@bitbucket.org/maycokz/empresas-react-native.git
+- Install dependencies: `yarn` or `npm install`
+- yarn ios or yarn android
+  
+```sh
+expo start
+```
