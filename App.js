@@ -44,7 +44,7 @@ const RootNavigation = () => {
           <Stack.Screen
             name="enterpriseDetail"
             component={EnterpriseDetailScreen}
-            options={{ ...appBarConfig('Enterprise detail') }}
+            options={appBarConfig('Enterprise detail')}
           />
           <Stack.Screen
             name="filterScreen"
