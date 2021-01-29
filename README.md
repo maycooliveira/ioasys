@@ -5,7 +5,7 @@
 ### Libs ###
 
 * @react-native-async-storage/async-storage - Utilizada para persistir os dados necesários para acessar a api (token, client e uid);
-* @react-native-community/eslint-config e eslint - Utilizada para mater uma boa prática de desenovlvimento;
+* @react-native-community/eslint-config e eslint - Utilizada para mater uma boa prática de desenvolvimento;
 * @react-native-community/masked-view - Utilizada no processo de criação da navegação do app;
 * @react-navigation/native - Utilizada no processo de criação da navegação do app;
 * @react-navigation/stack - Utilizada no processo de criação da navegação do app;
