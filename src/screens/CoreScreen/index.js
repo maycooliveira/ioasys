@@ -21,7 +21,7 @@ const CoreScreen = () => {
     navigation.setOptions({
       headerRight: () => (
         <FilterButton onPress={() => {}}>
-          <Icon name={'filter'} size={20} color={colors.base} />
+          <Icon name={'filter'} size={16} color={colors.slate} />
         </FilterButton>
       ),
     });
@@ -43,10 +43,16 @@ const CoreScreen = () => {
     setLoading(data.loading);
   }, [data.enterprises, data.loading]);
 
-  const renderItem = ({ item }) => <RowEnterprise item={item} />;
+  const renderItem = ({ item }) => (
+    <RowEnterprise item={item} onPress={() => callDetail(item.id)} />
+  );
 
   const renderFooter = () => {
-    return <Loading />;
+    return <Loading color={colors.base} />;
+  };
+
+  const callDetail = (id) => {
+    navigation.navigate('enterpriseDetail', { id: id });
   };
 
   return (

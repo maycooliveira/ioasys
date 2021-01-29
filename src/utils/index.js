@@ -31,4 +31,15 @@ const getUnique = (dataTypes) => {
   });
 };
 
-export { showMessage, checkEmail, checkPasswordLength, Spacer, getUnique };
+const formatMoney = (n) => {
+  if (n == null || n === 0) {
+    return 'R$0,00';
+  }
+  return `£ ${n
+    .toFixed(2)
+
+    .replace('.', ',')
+    .replace(/(\d)(?=(\d{3})+\,)/g, '$1.')}`;
+};
+
+export { showMessage, checkEmail, checkPasswordLength, Spacer, getUnique, formatMoney };

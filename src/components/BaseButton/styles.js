@@ -15,7 +15,3 @@ export const ButtonTitle = styled.Text`
   font-weight: 600;
   color: #fff;
 `;
-
-export const LoadingAction = styled.ActivityIndicator`
-  color: #000;
-`;

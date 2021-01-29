@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import LoginScreen from './src/screens/LoginScreen';
 import store from './src/store';
 import CoreScreen from './src/screens/CoreScreen';
+import EnterpriseDetailScreen from './src/screens/EnterpriseDetailScreen';
+
 const Stack = createStackNavigator();
 
 const appBarConfig = (title = '') => {
@@ -34,7 +36,12 @@ const RootNavigation = () => {
           <Stack.Screen
             name="coreScreen"
             component={CoreScreen}
-            options={{ ...appBarConfig('Empresas') }}
+            options={{ ...appBarConfig('Enterprises') }}
+          />
+          <Stack.Screen
+            name="enterpriseDetail"
+            component={EnterpriseDetailScreen}
+            options={{ ...appBarConfig('Enterprise detail') }}
           />
         </Stack.Navigator>
       </BaseNavigationContainer>

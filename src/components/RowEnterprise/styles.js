@@ -12,7 +12,8 @@ export const ViewInfo = styled.View`
   height: 80px;
   background-color: #eceff1;
   padding: 10px 10px 10px 42px;
-  elevation: 1;
+  elevation: 3;
+  border-radius: 8px;
   shadow-opacity: 1;
   shadow-radius: 6px;
   shadow-color: ${colors.black_30};
@@ -26,16 +27,13 @@ export const EnterpriseImage = styled.Image`
   width: 60px;
   resize-mode: cover;
   border-radius: 6px;
-  elevation: 2;
-  shadow-opacity: 1;
-  shadow-radius: 6px;
-  shadow-color: ${colors.black_30};
+  elevation: 3;
 `;
 
 export const SubTitle = styled.Text`
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 300;
-  color: ${colors.black_60};
+  color: ${colors.base};
 `;
 
 export const Title = styled.Text`
