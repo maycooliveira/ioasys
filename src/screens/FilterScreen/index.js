@@ -73,6 +73,7 @@ const FilterScreen = (props) => {
       />
 
       <BaseButton title="Filter" color={colors.base} onPress={() => doFilter()} loading={loading} />
+      <Spacer value={30} />
     </Container>
   );
 };

@@ -8,6 +8,7 @@ import store from './src/store';
 import CoreScreen from './src/screens/CoreScreen';
 import EnterpriseDetailScreen from './src/screens/EnterpriseDetailScreen';
 import FilterScreen from './src/screens/FilterScreen';
+import { StatusBar } from 'expo-status-bar';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ const appBarConfig = (title = '') => {
 const RootNavigation = () => {
   return (
     <Provider store={store}>
+      <StatusBar backgroundColor="transparent" style="dark" />
       <BaseNavigationContainer>
         <Stack.Navigator initialRouteName="loginScreen">
           <Stack.Screen

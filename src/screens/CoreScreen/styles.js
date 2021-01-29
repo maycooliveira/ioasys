@@ -23,7 +23,7 @@ export const FilterButton = styled.TouchableOpacity`
 export const EmptyListLabel = styled.Text`
   font-size: 20;
   font-weight: 600;
-  color: ${colors.gray_30};
+  color: ${colors.gray_40};
   text-align: center;
   margin-top: 40px;
 `;

@@ -44,11 +44,12 @@ const LoginScreen = () => {
   return (
     <Container>
       <ViewLogin>
-        <Spacer value={50} />
+        <Spacer value={30} />
         <Logo source={logoImage} />
         <Input
           value={formValues.email}
           placeholder="E-mail"
+          keyboardType="email-address"
           onChangeText={(text) => handleChangeText('email', text)}
         />
         <Input
@@ -57,7 +58,7 @@ const LoginScreen = () => {
           name={formValues.password}
           onChangeText={(text) => handleChangeText('password', text)}
         />
-        <Spacer value={50} />
+        <Spacer value={30} />
         <BaseButton title="Enter" color={colors.base} onPress={() => doLogin()} loading={loading} />
         <Spacer value={50} />
       </ViewLogin>
