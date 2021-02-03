@@ -3,6 +3,7 @@ import api from '../../../services/api';
 import { getUserFailure, getUserSuccess, Types } from './actions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { showMessage } from '../../../utils';
+import { enterpriseListSuccess } from '../enterprise/actions';
 
 const token = 'access-token';
 
@@ -24,6 +25,7 @@ export function* getUser(value) {
 }
 
 export function* doLogout() {
+  yield put(enterpriseListSuccess([]));
   yield put(getUserSuccess(null));
 }
 
